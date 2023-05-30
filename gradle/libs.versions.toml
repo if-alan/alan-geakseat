@@ -1,0 +1,59 @@
+[versions]
+androidDesugarJdkLibs = "1.1.5"
+androidGradlePlugin = "7.2.1"
+androidMaterial = "1.6.1"
+androidxActivity = "1.6.0"
+androidxAnotation = "1.4.0-beta01"
+androidxAppCompat = "1.5.0"
+androidxCompose = "1.2.1"
+androidxComposeCompiler = "1.3.1"
+androidxComposeMaterial = "1.2.1"
+androidxCore = "1.8.0"
+androidxEspresso = "3.4.0"
+androidxTestExt = "1.1.3"
+detekt = "1.21.0"
+hilt = "2.42"
+hiltExt = "1.0.0"
+kotlin = "1.7.0"
+kotlinAndroid = "1.7.10"
+ktlint = "0.45.2"
+logging-interceptor = "4.10.0"
+retrofit = "2.9.0"
+spotless = "6.7.2"
+moshi = "1.14.0"
+timber = "5.0.1"
+
+[libraries]
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
+android-material = { group = "com.google.android.material", name = "material", version.ref = "androidMaterial" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
+androidx-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "androidxComposeMaterial" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidxCompose" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "androidxAnotation" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidxEspresso" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
+hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logging-interceptor" }
+moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
+detektFormatting-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+spotless-gradlePlugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinAndroid" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+
