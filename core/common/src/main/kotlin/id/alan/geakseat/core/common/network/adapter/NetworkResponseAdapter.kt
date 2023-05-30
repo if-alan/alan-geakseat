@@ -13,27 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package id.alan.geakseat.core.common.network.adapter
 
-pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
+import java.lang.reflect.Type
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.CallAdapter
+import retrofit2.Converter
+
+/**
+ * Adapter of Network Response
+ */
+class NetworkResponseAdapter<S : Any, E : Any>(
+    private val successType: Type,
+    private val errorBodyConverter: Converter<ResponseBody, E>
+) : CallAdapter<S, Call<NetworkResponse<S, E>>> {
+
+    override fun responseType(): Type = successType
+
+    override fun adapt(call: Call<S>): Call<NetworkResponse<S, E>> =
+        NetworkResponseCall(call, errorBodyConverter)
 }
-
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.name = "TechTestAlanGeakseat"
-include(":app")
-include(":core:common")
-include(":core:network")
-include(":core:model")
-

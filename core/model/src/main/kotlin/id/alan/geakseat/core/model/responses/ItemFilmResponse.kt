@@ -13,27 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package id.alan.geakseat.core.model.responses
 
-pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
+import androidx.annotation.Keep
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.name = "TechTestAlanGeakseat"
-include(":app")
-include(":core:common")
-include(":core:network")
-include(":core:model")
-
+/**
+ * Response of films from [ItemPeopleResponse]
+ */
+@Keep
+@JsonClass(generateAdapter = true)
+data class ItemFilmResponse(
+    @Json(name = "name")
+    val name: String = ""
+)

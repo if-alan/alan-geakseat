@@ -13,27 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package id.alan.geakseat.core.network.authorization
 
-pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
+import okhttp3.Interceptor
+import okhttp3.Response
+
+/**
+ * Interceptor for Unauthorized Condition
+ */
+class UnauthorizedInterceptor : Interceptor {
+
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val mainRequest = chain.request().newBuilder()
+            .addHeader(
+                "Content-Type",
+                "application/json"
+            ).build()
+        synchronized(this) {
+            return chain.proceed(mainRequest)
+        }
     }
 }
-
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.name = "TechTestAlanGeakseat"
-include(":app")
-include(":core:common")
-include(":core:network")
-include(":core:model")
-

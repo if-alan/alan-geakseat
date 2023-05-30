@@ -13,27 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
+plugins {
+    id("alan.android.library")
+    id("alan.spotless")
+    id("alan.detekt")
 }
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
+dependencies {
+    implementation(libs.androidx.annotation)
+
+    implementation(libs.logging.interceptor)
+    implementation(libs.retrofit.core)
+
+    implementation(libs.moshi.kotlin)
+
+    implementation(libs.timber)
 }
-
-rootProject.name = "TechTestAlanGeakseat"
-include(":app")
-include(":core:common")
-include(":core:network")
-include(":core:model")
-

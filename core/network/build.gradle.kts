@@ -13,27 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
+plugins {
+    id("alan.android.library")
+    kotlin("kapt")
+    id("alan.spotless")
+    id("alan.detekt")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
+secrets {
+    defaultPropertiesFileName = "secrets.defaults.properties"
 }
 
-rootProject.name = "TechTestAlanGeakseat"
-include(":app")
-include(":core:common")
-include(":core:network")
-include(":core:model")
+dependencies {
+    implementation(project(":core:common"))
+    implementation(project(":core:model"))
 
+    implementation(libs.retrofit.core)
+    implementation(libs.stetho.okhttp3)
+
+    implementation(libs.moshi.kotlin)
+    implementation(libs.moshi.converter)
+    kapt(libs.moshi.codegen)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+}

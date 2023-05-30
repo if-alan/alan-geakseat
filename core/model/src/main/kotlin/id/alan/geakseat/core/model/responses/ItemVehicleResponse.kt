@@ -13,27 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package id.alan.geakseat.core.model.responses
 
-pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
+import androidx.annotation.Keep
+import com.squareup.moshi.Json
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.name = "TechTestAlanGeakseat"
-include(":app")
-include(":core:common")
-include(":core:network")
-include(":core:model")
-
+/**
+ * Response of Vehicles from [ItemPeopleResponse]
+ */
+@Keep
+data class ItemVehicleResponse(
+    @Json(name = "name")
+    val name: String = ""
+)

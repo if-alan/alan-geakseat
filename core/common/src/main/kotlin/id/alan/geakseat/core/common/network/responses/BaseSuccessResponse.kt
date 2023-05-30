@@ -13,27 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package id.alan.geakseat.core.common.network.responses
 
-pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
+import androidx.annotation.Keep
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.name = "TechTestAlanGeakseat"
-include(":app")
-include(":core:common")
-include(":core:network")
-include(":core:model")
-
+/**
+ * Generic network response for any type responses [T].
+ *
+ * @param status A string description of the call status.
+ * @param message A more descriptive message of the failure call status.
+ * @param data The results returned by the call.
+ */
+@Keep
+data class BaseSuccessResponse<T>(
+    val status: String?,
+    val message: String?,
+    val data: T?
+)

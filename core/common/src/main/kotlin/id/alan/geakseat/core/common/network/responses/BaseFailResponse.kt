@@ -13,27 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package id.alan.geakseat.core.common.network.responses
 
-pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
+import androidx.annotation.Keep
+import com.squareup.moshi.Json
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.name = "TechTestAlanGeakseat"
-include(":app")
-include(":core:common")
-include(":core:network")
-include(":core:model")
-
+/**
+ * Base failed response
+ * @param T Body error responses
+ */
+@Keep
+data class BaseFailResponse<T>(
+    @Json(name = "error")
+    val error: T?,
+    @Json(name = "error_code")
+    val errorCode: String?,
+    @Json(name = "message")
+    val message: String?,
+    @Json(name = "status")
+    val status: String?,
+    @Json(name = "user_message")
+    val userMessage: String?
+)

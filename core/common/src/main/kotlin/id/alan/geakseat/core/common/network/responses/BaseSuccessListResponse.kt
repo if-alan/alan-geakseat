@@ -13,27 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package id.alan.geakseat.core.common.network.responses
 
-pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
+import androidx.annotation.Keep
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.name = "TechTestAlanGeakseat"
-include(":app")
-include(":core:common")
-include(":core:network")
-include(":core:model")
-
+/**
+ * Generic network response for any type responses [T].
+ *
+ * @param status A string description of the call status.
+ * @param _meta A meta descriptive page responses of the call status.
+ * @param data The results returned by the call.
+ */
+@Keep
+@Suppress("ConstructorParameterNaming")
+data class BaseSuccessListResponse<T>(
+    val _meta: Meta?,
+    val data: List<T>?,
+    val status: String?
+)

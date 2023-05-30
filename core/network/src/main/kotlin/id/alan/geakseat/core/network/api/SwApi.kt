@@ -13,27 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package id.alan.geakseat.core.network.api
 
-pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
+import id.alan.geakseat.core.common.network.responses.GenericListResponse
+import id.alan.geakseat.core.model.responses.ItemPeopleResponse
+import retrofit2.http.GET
+
+/**
+ * Representation interface of the Star Wars API endpoints.
+ */
+interface SwApi {
+
+    /**
+     * Get list of people
+     *
+     * @return Response success or failed.
+     */
+    @GET("/people")
+    suspend fun getPeoples(): GenericListResponse<ItemPeopleResponse, Any>
 }
-
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.name = "TechTestAlanGeakseat"
-include(":app")
-include(":core:common")
-include(":core:network")
-include(":core:model")
-
