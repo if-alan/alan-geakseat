@@ -15,15 +15,15 @@
  */
 package id.alan.geakseat.navigation
 
-import MyAppState
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.google.accompanist.navigation.animation.AnimatedNavHost
-import id.alan.geakseat.features.peoplelist.navigation.PeopleListDestination
-import id.alan.geakseat.features.peoplelist.navigation.peopleListGraph
+import id.alan.geakseat.features.MyAppState
 import id.alan.geakseat.features.peopledetail.navigation.PeopleDetailDestination
 import id.alan.geakseat.features.peopledetail.navigation.peopleDetailGraph
+import id.alan.geakseat.features.peoplelist.navigation.PeopleListDestination
+import id.alan.geakseat.features.peoplelist.navigation.peopleListGraph
 
 /**
  * Top-level navigation graph. Navigation is organized as explained at

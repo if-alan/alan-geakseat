@@ -15,7 +15,6 @@
  */
 package id.alan.geakseat.ui
 
-import MyAppState
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
@@ -24,9 +23,10 @@ import androidx.compose.material.SnackbarHost
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import id.alan.geakseat.features.MyAppState
+import id.alan.geakseat.features.rememberMyAppState
 import id.alan.geakseat.navigation.MyNavHost
 import id.alan.geakseat.ui.theme.MyApplicationTheme
-import rememberMyAppState
 
 /**
  * First screen when starting the app / main screen of the app
@@ -36,7 +36,6 @@ fun MyApplicationScreen(
     appState: MyAppState = rememberMyAppState(),
 ) {
     MyApplicationTheme {
-
         Scaffold(
             scaffoldState = appState.scaffoldState,
             snackbarHost = {

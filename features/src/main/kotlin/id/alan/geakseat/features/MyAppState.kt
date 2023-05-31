@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package id.alan.geakseat.features
+
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.SnackbarDuration
