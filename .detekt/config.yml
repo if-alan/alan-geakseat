@@ -363,7 +363,7 @@ style:
     values:
       - 'FIXME:'
       - 'STOPSHIP:'
-#      - 'TODO:'
+    #      - 'TODO:'
     allowedPatterns: ""
   ForbiddenImport:
     active: true
@@ -384,7 +384,6 @@ style:
   LoopWithTooManyJumpStatements:
     active: true
     maxJumpCount: 1ignoreAnnotated
-    excludes: "**/UriUtils.kt, **/QwExpandableText.kt, **/SseServiceImpl.kt, **/HomepageViewModel.kt"
   MagicNumber:
     active: true
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"

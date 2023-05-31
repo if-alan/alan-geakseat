@@ -19,7 +19,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import id.alan.geakseat.core.network.api.SwApi
+import id.alan.geakseat.core.network.api.PeopleApi
 import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -34,18 +34,18 @@ import retrofit2.Retrofit
 class ApiModule {
 
     /**
-     * Create a provider method binding for [SwApi].
+     * Create a provider method binding for [PeopleApi].
      *
      * @return Instance of Star Wars service.
      * @see Provides
      */
     @Singleton
     @Provides
-    fun provideTaskService(
+    fun providePeopleService(
         client: OkHttpClient,
         retrofitBuilder: Retrofit.Builder
-    ): SwApi = retrofitBuilder
+    ): PeopleApi = retrofitBuilder
         .client(client)
         .build()
-        .create(SwApi::class.java)
+        .create(PeopleApi::class.java)
 }

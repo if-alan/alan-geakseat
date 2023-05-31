@@ -20,14 +20,16 @@ import androidx.annotation.Keep
 /**
  * Generic network response for any type responses [T].
  *
- * @param status A string description of the call status.
- * @param _meta A meta descriptive page responses of the call status.
- * @param data The results returned by the call.
+ * @param count Total of Data.
+ * @param next Next Pagination.
+ * @param previous Previous Pagination.
+ * @param results The results returned by the call.
  */
 @Keep
 @Suppress("ConstructorParameterNaming")
 data class BaseSuccessListResponse<T>(
-    val _meta: Meta?,
-    val data: List<T>?,
-    val status: String?
+    val count: String?,
+    val next: String?,
+    val previous: String?,
+    val results: List<T>?
 )

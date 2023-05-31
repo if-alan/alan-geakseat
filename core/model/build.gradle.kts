@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 plugins {
-    id("kotlin")
+    id("alan.android.library")
+    id("kotlin-parcelize")
     id("alan.spotless")
     id("alan.detekt")
 }

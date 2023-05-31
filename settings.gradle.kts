@@ -33,7 +33,11 @@ dependencyResolutionManagement {
 
 rootProject.name = "TechTestAlanGeakseat"
 include(":app")
+include(":features")
 include(":core:common")
-include(":core:network")
+include(":core:data")
 include(":core:model")
+include(":core:navigation")
+include(":core:network")
+include(":core:ui")
 

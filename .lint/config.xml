@@ -20,4 +20,7 @@
     <issue id="ConvertToWebp">
         <ignore path="*/androidApp/src/main/res/**/**.png" />
     </issue>
+    <issue id="LintError">
+        <ignore regexp=".*module-info\.class.*"/>
+    </issue>
 </lint>

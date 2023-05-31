@@ -18,6 +18,7 @@ plugins {
     kotlin("kapt")
     id("alan.spotless")
     id("alan.detekt")
+    id("dagger.hilt.android.plugin")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 

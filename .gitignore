@@ -1,5 +1,5 @@
 # Built application files
-*.apk
+#*.apk //Temporary Commented while testing by Geakseat
 *.aar
 *.ap_
 *.aab

@@ -94,4 +94,19 @@ class NetworkModule {
      */
     @Provides
     fun provideUnauthorizedInterceptor() = UnauthorizedInterceptor()
+
+    /**
+     * Create a provider method binding for [OkHttpClient]
+     * without any authenticator
+     *
+     * @return Instance of http client.
+     * @see Provides
+     */
+    @Provides
+    fun provideUnAuthHttpClient(
+        clientBuilder: OkHttpClient.Builder,
+        unauthorizedInterceptor: UnauthorizedInterceptor
+    ): OkHttpClient = clientBuilder
+        .addInterceptor(unauthorizedInterceptor)
+        .build()
 }

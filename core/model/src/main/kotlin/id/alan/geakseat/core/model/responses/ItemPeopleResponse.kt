@@ -18,6 +18,7 @@ package id.alan.geakseat.core.model.responses
 import androidx.annotation.Keep
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import id.alan.geakseat.core.model.data.PeopleData
 
 /**
  * Response of peoples from API
@@ -44,15 +45,38 @@ data class ItemPeopleResponse(
     @Json(name = "homeworld")
     val homeworld: String? = "",
     @Json(name = "films")
-    val films: List<ItemFilmResponse>? = listOf(),
+    val films: List<String>? = listOf(),
+    @Json(name = "species")
+    val species: List<String>? = listOf(),
     @Json(name = "vehicles")
-    val vehicles: List<ItemVehicleResponse>? = listOf(),
+    val vehicles: List<String>? = listOf(),
     @Json(name = "starships")
-    val starships: List<ItemVehicleResponse>? = listOf(),
+    val starships: List<String>? = listOf(),
     @Json(name = "created")
     val created: String? = "",
     @Json(name = "edited")
     val edited: String? = "",
     @Json(name = "url")
     val url: String? = "",
+)
+
+/**
+ * Helper extension to transforms [ItemPeopleResponse] to visual model.
+ *
+ * @return [PeopleData]
+ */
+@Suppress("ComplexMethod")
+fun ItemPeopleResponse.asExternalModel() = PeopleData(
+    name = name ?: "",
+    height = height ?: "",
+    mass = mass ?: "",
+    hairColor = hairColor ?: "",
+    skinColor = skinColor ?: "",
+    eyeColor = eyeColor ?: "",
+    gender = gender ?: "",
+    birthYear = birthYear ?: "",
+    films = films ?: listOf(),
+    species = species ?: listOf(),
+    starships = starships ?: listOf(),
+    vehicles = vehicles ?: listOf()
 )

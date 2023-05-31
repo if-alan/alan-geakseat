@@ -21,6 +21,7 @@ plugins {
     id("alan.android.application.compose")
     id("alan.spotless")
     id("alan.detekt")
+    id("alan.android.hilt")
 }
 
 android {
@@ -43,10 +44,17 @@ android {
 }
 
 dependencies {
+    implementation(project(":features"))
+    implementation(project(":core:navigation"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
 
     implementation(libs.android.material)
 
     implementation(libs.accompanist.navigation.animation)
+
+    implementation(libs.timber)
+
+    implementation(libs.stetho.okhttp3)
 }
