@@ -35,9 +35,9 @@ class PeopleDetailViewModel @Inject constructor() : ViewModel() {
     /**
      * Handle People Data from List.
      */
-    fun handleSharedCctvData(peopleData: PeopleData?) {
-        peopleData?.let {
-            _peopleData.value = peopleData
+    fun handleSharedPeopleData(sharedPeopleData: PeopleData?) {
+        sharedPeopleData?.let {
+            _peopleData.value = sharedPeopleData
         }
     }
 }

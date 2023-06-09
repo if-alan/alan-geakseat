@@ -45,7 +45,7 @@ fun PeopleDetailRoute(
     viewModel: PeopleDetailViewModel = hiltViewModel()
 ) {
     LaunchedEffect(Unit) {
-        viewModel.handleSharedCctvData(sharedPeopleData)
+        viewModel.handleSharedPeopleData(sharedPeopleData)
     }
 
     val peopleData by viewModel.peopleData.collectAsStateWithLifecycle()
